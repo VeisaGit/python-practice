@@ -1,15 +1,27 @@
 import random
-from client import game
 
 
-def make_number():
-    global number
-    number = list(str(random.randint(1000, 9999)))
-    print(number)
+number = str(random.randint(1000, 9999))
+print(number, ' - загаданное число')
+
+def check_number(u_number):
+
+    r = dict(zip(number, u_number))
+    print(r)
+
+    cows = []
+    bulls = []
+
+    for i in r:
+        if i == r[i]:
+            print(i)
+            bulls.append(1)
+        else:
+            print(i)
+            cows.append(1)
+
+    print("Коровы:{} Быки: {}".format(sum(cows), sum(bulls)))
 
 
-
-def check_number():
-    game()
-    if
+    # print(u_number, ' - введенное число')
 
