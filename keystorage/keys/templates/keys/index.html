@@ -1,17 +1,35 @@
-{% extends 'keys/base.html' %}
+﻿{% extends 'keys/base.html' %}
 {% block content %}
 
 <p>Hello!</p>
-{% for item in data%}
-<table>
-<tr>
-<td>{{item.key}}</td>
-<td>{{item.choice}}</td>
-<td>{{item.key_user}}</td>
-<td>{{item.key_kcv}}</td>
-<td>{{item.key_type}}</td>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Значение ключа</th>
+      <th scope="col">Бой/Тест</th>
+      <th scope="col">Пользователь</th>
+      <th scope="col">KCV ключа</th>
+      <th scope="col">Тип ключа</th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for item in data %}
+    <tr>
+        <td>{{item.key}}</td>
+        <td>{{item.choice}}</td>
+        <td>{{item.key_user}}</td>
+        <td>{{item.key_kcv}}</td>
+        <td>{{item.key_type}}</td>
+        {% endfor %}
 </tr>
+    </tr>
+  </tbody>
 </table>
-{% endfor %}
+
+
+
+
 
 {% endblock content %}
