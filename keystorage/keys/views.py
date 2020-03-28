@@ -1,7 +1,8 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from . models import Keys
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
+
 
 # Create your views here.
 
@@ -9,11 +10,10 @@ from django.contrib.auth import authenticate, login
 #     data = {
 #         'data': Keys.objects.all()
 #     }
-#     return render(request, 'keys/index.html', data)
 
 def index(request):
     data = {
-           'data': Keys.objects.all()
+        'data': Keys.objects.all(),
         }
     return render(request, 'keys/index.html', data)
 

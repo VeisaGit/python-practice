@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'keys/css/bootstrap.min.css' %}" id="bootstrap-css">
+    <link rel="stylesheet" href="{% static 'keys/js/bootstrap.min.js' %}">
+    <script src="{% static 'keys/js/jquery.min.js' %}"></script>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Авторизация</title>
 </head>
 <body>
-{% if form.errors %}
-<p> Something wrong!</p>
-{% endif %}
+    {% if form.errors %}
+    <p>Произошла ошибка,возможно вы неверно ввели логин или пароль. Попробуйте еще раз или обратитесь к администратору!</p>
+    {% endif %}
 
-{%  if next  %}
-<p>Hey, you can access ths page</p>
-{% endif %}
-
-
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-
-    <p>Username: {{ form.username }}</p>
-    <p>Password: {{ form.password }}</p>
-
-
-    <p><input type="submit" value="login"></p>
-    <input type="hidden" name="next" value="{{ next }}">
-
-
-
-
-</form>
+    <div class="container login-container">
+            <div class="row">
+                <div class="col-md-6 login-form-1">
+                    <h3>Авторизация:</h3>
+                    <form method="post" action="{% url 'login' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input name="username" type="text" class="form-control" placeholder="Логин" value=""/>
+                        </div>
+                        <div class="form-group">
+                            <input name="password" type="password" class="form-control" placeholder="Пароль" value=""/>
+                        </div>
+                        <div class="form-group">
+                            <input class="btnSubmit" type="submit" value="Войти" >
+                            <input type="hidden" name="next" value="{{ next }}">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
 </body>
 </html>
