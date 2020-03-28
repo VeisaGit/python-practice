@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Keys
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
-from .filters import OrderFilter
+from .filters import KeysFilter
 
 # Create your views here.
 
@@ -12,21 +12,13 @@ from .filters import OrderFilter
 #     }
 
 def index(request):
-
-    orders = Keys.objects.all()
-
-    myFilter = OrderFilter(request.GET, queryset=orders)
-
+    rows = Keys.objects.all()
+    myFilter = KeysFilter(request.GET, queryset=rows)
 
     data = {
         'data': myFilter.qs,
-        # 'key': Keys.key,
-        # 'key_user': Keys.key_user,
-        # 'key_kcv': Keys.key_kcv,
-        # 'key_type': Keys.key_type,
         'myFilter': myFilter,
     }
-
 
     return render(request, 'keys/index.html', data)
 

@@ -1,7 +1,8 @@
 import django_filters
 from .models import *
 
-class OrderFilter(django_filters.FilterSet):
+class KeysFilter(django_filters.FilterSet):
     class Meta:
         model = Keys
-        fields = '__all__'
+        # fields = '__all__'
+        fields = ['key', 'choice', 'key_user', 'key_kcv', 'key_type']
