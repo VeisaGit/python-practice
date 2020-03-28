@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from . models import Keys
+from .models import Keys
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
-
+from .filters import OrderFilter
 
 # Create your views here.
 
@@ -12,9 +12,22 @@ from django.contrib.auth import authenticate, login
 #     }
 
 def index(request):
+
+    orders = Keys.objects.all()
+
+    myFilter = OrderFilter(request.GET, queryset=orders)
+
+
     data = {
-        'data': Keys.objects.all(),
-        }
+        'data': myFilter.qs,
+        # 'key': Keys.key,
+        # 'key_user': Keys.key_user,
+        # 'key_kcv': Keys.key_kcv,
+        # 'key_type': Keys.key_type,
+        'myFilter': myFilter,
+    }
+
+
     return render(request, 'keys/index.html', data)
 
 # def register(request):
@@ -34,4 +47,5 @@ def index(request):
 #
 #     context = {'form': form}
 #     return render(request, 'registration/register.html', context)
+
 

@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'keys.apps.KeysConfig',
     'multiselectfield',
     'crispy_forms',
+    'django_filters',
+    'bootstrapform',
+
 ]
 
 MIDDLEWARE = [

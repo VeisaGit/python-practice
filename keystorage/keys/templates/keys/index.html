@@ -3,6 +3,9 @@
 
 {% if user.is_authenticated %}
 
+<form method="get"
+{{ myFilter.form }}
+<button type="submit">search</button>
 <table class="table">
 <thead>
     <tr>
@@ -27,7 +30,10 @@
 </table>
 
 {% else%}
-<p>Please <a href="{% url 'login' %}">authorise!</a> </p>
+<h4>Вы находитесь на портале для хранения криптографических ключей</h4>
+<p>Доступ к данным возможен только при наличии соответствующего уровня доступа. </p>
+<p>Обладателю соответствующего уровня доступа необходимо <a href="{% url 'login' %}">авторизоваться</a> используя полученный логин и пароль.</p>
+<p></p>
 
 
 
