@@ -4,13 +4,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 from .filters import KeysFilter
 
-# Create your views here.
-
-# def hello(request):
-#     data = {
-#         'data': Keys.objects.all()
-#     }
-
 def index(request):
     rows = Keys.objects.all()
     myFilter = KeysFilter(request.GET, queryset=rows)

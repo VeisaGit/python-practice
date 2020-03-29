@@ -6,15 +6,10 @@
 
 <form method='GET' >
     <p>
-        Отражается {{ myFilter.qs.count }} из {{ myFilter.queryset.count }} строк. <a href='{{ request.path }}' >Очистить запрос</a>
+        Отражается {{ myFilter.qs.count }} из {{ myFilter.queryset.count }} строк.
         <input type='submit' value='Фильтр' class="btn btn-success m-1"/>
+        <input type='submit' value='Очистить' class="btn btn-warning m-1" name="request.path"/>
     </p>
-    {% for field in form %}
-    <div>
-        {{ field.errors }}
-        {{ field.label_tag }} {{ field }}
-    </div>
-    {% endfor %}
 
 <table class="table">
 <thead>
@@ -26,7 +21,7 @@
         <th scope="col">Бой/Тест</th>
     </tr>
     <tr>
-        <th scope="col"><input class="form-control" type="text" name="key"></th>
+        <th scope="col"><input class="form-control" type="text" name="key" value=""></th>
         <th scope="col"><input class="form-control" type="text" name="key_user"></th>
         <th scope="col"><input class="form-control" type="text" name="key_kcv"></th>
         <th scope="col"><input class="form-control" type="text" name="key_type"></th>
