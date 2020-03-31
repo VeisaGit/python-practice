@@ -19,6 +19,8 @@
         <th scope="col">KCV ключа</th>
         <th scope="col">Тип ключа</th>
         <th scope="col">Бой/Тест</th>
+        <th scope="col">Тип в Way4</th>
+        <th scope="col">Имя в Way4</th>
     </tr>
     <tr>
         <th scope="col"><input class="form-control" type="text" name="key" value=""></th>
@@ -26,6 +28,8 @@
         <th scope="col"><input class="form-control" type="text" name="key_kcv"></th>
         <th scope="col"><input class="form-control" type="text" name="key_type"></th>
         <th scope="col"><input class="form-control" type="text" name="choice"></th>
+        <th scope="col"><input class="form-control" type="text" name="key_typeW4"></th>
+        <th scope="col"><input class="form-control" type="text" name="key_nameW4"></th>
     </tr>
 
 </thead>
@@ -39,6 +43,8 @@
         <td>{{item.key_kcv}}</td>
         <td>{{item.key_type}}</td>
         <td>{{item.choice}}</td>
+        <td>{{item.key_typeW4}}</td>
+        <td>{{item.key_nameW4}}</td>
 {% endfor %}
     </tr>
 </tbody>

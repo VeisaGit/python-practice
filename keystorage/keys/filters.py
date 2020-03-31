@@ -5,4 +5,4 @@ class KeysFilter(django_filters.FilterSet):
     class Meta:
         model = Keys
         # fields = '__all__'
-        fields = ['key', 'key_user', 'key_kcv', 'key_type', 'choice']
+        fields = ['key', 'key_user', 'key_kcv', 'key_type', 'choice', 'key_typeW4', 'key_nameW4']
