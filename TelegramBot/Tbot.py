@@ -32,12 +32,18 @@ def message_handler(update: Update, context: CallbackContext):
         update.message.reply_text(instructions(text), parse_mode=ParseMode.HTML)
 
     elif text == '/start' or text == '/bot':
-        update.message.reply_text(alternative_message(text), parse_mode=ParseMode.HTML)
+        update.message.reply_text(information_about_bot(text), parse_mode=ParseMode.HTML)
+
+    # elif text == '/stat':
+    #     update.message.reply_text(
+    #         r = list_messages(user_id=user),
+    #         for i in r:
+    #             print(i))
 
     else:
         pressure_value = processing_user_input(text)
-        systolic_pressure_value = pressure_value[0]
-        diastolic_pressure_value = pressure_value[1]
+        systolic_pressure_value = int(pressure_value[0])
+        diastolic_pressure_value = int(pressure_value[1])
 
         update.message.reply_text(successful_user_message(user), parse_mode=ParseMode.HTML)
 
@@ -45,7 +51,10 @@ def message_handler(update: Update, context: CallbackContext):
             user_id=user.id,
             systolic_pressure=systolic_pressure_value,
             diastolic_pressure=diastolic_pressure_value,
-            date=date, )
+            )
+        # TODO: Рассмотреть возможность внесения комментария к факту фиксации давления (например указать самочувствие - отпразить это в описании к предложению внести коммент)
+        # TODO: Отдельно включить краткую инструкцию в виде описания/картинки как правильно мерить давление.
+        # TODO: Рассмотреть возможность добавление команды - самое высокое значение, самое низкое значение.
 
 
 if __name__ == '__main__':
