@@ -1,4 +1,9 @@
 import re
+'''
+List of commands for GodFatherBot
+instructions - посмотреть инструкции
+bot - информация о боте
+'''
 
 def statistic():
     pass
@@ -12,12 +17,10 @@ def instructions(text):
     return text
 
 def alternative_message(text):
-     text = "Я бот, которой помогает вести дневник измерений артериального давления. " \
-          "Введите: \n\n\"<i>Инструкции</i>\"\n\nчтобы понять, как заносить данные в дневник. Введите: \n\n\"<i>Команды</i>\"\n\nчтобы узнать, что еще я умею."
+     text = "Я бот, которой помогает вести дневник измерений артериального давления. Введите косую черту: <b>\"/\"</b>, чтобы посмотерть список доступных команд"
      return text
 
-def check_user_message(systolic_pressure, diastolic_pressure, user, date):
-
+def successful_user_message(user):
     text = f"Спасибо, {user.first_name}! Запись добавлена в дневник."
     return text
 
