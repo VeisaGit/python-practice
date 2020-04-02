@@ -3,6 +3,8 @@ from telegram.ext import Updater, CallbackContext
 from telegram.ext import Filters, MessageHandler
 from Commands import *
 from db import *
+import datetime
+import re
 
 
 def main():
@@ -20,20 +22,33 @@ def main():
 
 def message_handler(update: Update, context: CallbackContext):
     text = update.effective_message.text
+
     user = update.effective_user
+    date = datetime.datetime.today()
+    date = date.strftime("%d/%m/%Y %Hч %Mм")
 
-    if text == '110 70':
-        update.message.reply_text(check_user_message(text,user), parse_mode=ParseMode.HTML)
+    pressure_value = processing_user_input(text)
+    systolic_pressure_value = pressure_value[0]
+    diastolic_pressure_value = pressure_value[1]
 
-        add_message(
-            user_id=user.id,
-            text=text,)
+    update.message.reply_text(check_user_message(systolic_pressure, diastolic_pressure, user, date), parse_mode=ParseMode.HTML)
 
-    elif text == 'Инструкции':
-        update.message.reply_text(instructions(text), parse_mode=ParseMode.HTML)
-    else:
-        update.message.reply_text(alternative_message(text), parse_mode=ParseMode.HTML)
+    add_message_to_db(
+        user_id=user.id,
+        systolic_pressure=systolic_pressure_value,
+        diastolic_pressure=diastolic_pressure_value,
+        date=date,)
+
+
+    # elif text == 'Инструкции'
+    #         :
+    #     update.message.reply_text(instructions(text), parse_mode=ParseMode.HTML)
+    # else:
+    #     # update.message.reply_text(alternative_message(text), parse_mode=ParseMode.HTML)
+    #     update.message.reply_text('this is shit')
 
 
 if __name__ == '__main__':
+    systolic_pressure = 0
+    diastolic_pressure = 0
     main()

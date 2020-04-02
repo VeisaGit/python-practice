@@ -20,17 +20,19 @@ def init_db(conn, force: bool = False):
 
     c.execute('''
         CREATE TABLE IF NOT EXISTS user_message (
-        id          INTEGER PRIMARY KEY,
-        user_id     INTEGER NOT NULL,
-        text        TEXT NOT NULL
+        id                      INTEGER PRIMARY KEY,
+        user_id                 INTEGER NOT NULL,
+        systolic_pressure       INTEGER NOT NULL,
+        diastolic_pressure      INTEGER NOT NULL,
+        date                    TEXT NOT NULL
         )   
     ''')
     conn.commit()
 
 @ensure_connection
-def add_message(conn, user_id: int, text: str):
+def add_message_to_db(conn, systolic_pressure: int, diastolic_pressure: int, user_id: int, date: str):
     c = conn.cursor()
-    c.execute('INSERT INTO user_message (user_id, text) VALUES (?,?)', (user_id, text))
+    c.execute('INSERT INTO user_message (systolic_pressure,diastolic_pressure, user_id, date) VALUES (?,?,?,?)', (systolic_pressure, diastolic_pressure, user_id, date))
     conn.commit()
 
 @ensure_connection
@@ -49,10 +51,10 @@ def list_messages(conn, user_id: int, limit: int=3):
 
 # if __name__ == '__main__':
 #     init_db()
-#     add_mesage(user_id=123, text='is it really work?')
-#
-#     r = list_messages(user_id=123)
-#     for i in r:
-#         print(i)
+#     add_message_to_db(user_id=123, systolic_pressure='110',diastolic_pressure="70", date='01.04.20')
+
+    # r = list_messages(user_id=123)
+    # for i in r:
+    #     print(i)
 
 
