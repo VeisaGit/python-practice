@@ -3,8 +3,6 @@ from telegram.ext import Updater, CallbackContext
 from telegram.ext import Filters, MessageHandler
 from Commands import *
 from db import *
-import datetime
-import re
 
 
 def main():
@@ -23,10 +21,8 @@ def main():
 def message_handler(update: Update, context: CallbackContext):
 
     text = update.effective_message.text
-
     user = update.effective_user
-    date = datetime.datetime.today()
-    date = date.strftime("%d/%m/%Y %Hч %Mм")
+
 
     if text == '/instructions':
         update.message.reply_text(instructions(text), parse_mode=ParseMode.HTML)
@@ -34,11 +30,11 @@ def message_handler(update: Update, context: CallbackContext):
     elif text == '/start' or text == '/bot':
         update.message.reply_text(information_about_bot(text), parse_mode=ParseMode.HTML)
 
-    # elif text == '/stat':
-    #     update.message.reply_text(
-    #         r = list_messages(user_id=user),
-    #         for i in r:
-    #             print(i))
+    elif text == '/average':
+        monthly_average = monthly_average_query(user_id=user.id)
+        sistolic_average = monthly_average[0][0]
+        diastolic_average = monthly_average[0][1]
+        update.message.reply_text('Среднее значение вашего давления \n за последние 30 дней -  <b>{}/{}</b>'.format(round(sistolic_average), round(diastolic_average)), parse_mode=ParseMode.HTML)
 
     else:
         pressure_value = processing_user_input(text)
