@@ -3,6 +3,8 @@ import re
 List of commands for GodFatherBot
 instructions - посмотреть инструкции
 bot - информация о боте
+average - среднее за последние 30 дн.
+export30 - журнал за последние 30 дн.
 '''
 
 def average_mean_30d():
