@@ -36,29 +36,25 @@ def message_handler(update: Update, context: CallbackContext):
         diastolic_average = monthly_average[0][1]
         update.message.reply_text('Среднее значение вашего давления \n за последние 30 дней -  <b>{}/{}</b>'.format(round(sistolic_average), round(diastolic_average)), parse_mode=ParseMode.HTML)
         # TODO: Если среднее значение отклоняется от нормы, сообщить об этом.
+        # при этом, нужно учесть, что есть гипертоники и отталкиваться следует от комфортного (индивидуального давления) для конкретного человека
 
     elif text == '/export30':
         # TODO: вынести этот в commands.py, в отдельную ф-ю
         monthly_statistic = monthly_statistic_query(user_id=user.id)
-        text = '{}'.format(monthly_statistic)
-        # update.message.reply_text(text=text)TODO: нужно было для отражение работы ф-ии.
 
+        # Export to excel file
         wb = Workbook()
-
-        # grab the active worksheet
         ws = wb.active
 
-        ws['A1'] = 'Систолическое'
-        ws['B1'] = 'Диасталическое'
-
+        ws['A1'] = 'Дата и время измерения'
+        ws['B1'] = 'Систолическое'
+        ws['C1'] = 'Диасталическое'
 
         for row in monthly_statistic:
             ws.append(row)
 
-        # Save the file TODO: в отчет добавить дату.
         wb.save("report_30_days.xlsx")
 
-        # update.message.reply_text(chat_id) TODO: нужно было для отражение работы ф-ии.
         doc = open('report_30_days.xlsx', 'rb')
         update.message.reply_document(doc)
 
@@ -75,7 +71,8 @@ def message_handler(update: Update, context: CallbackContext):
             systolic_pressure=systolic_pressure_value,
             diastolic_pressure=diastolic_pressure_value,
             )
-        # TODO: Рассмотреть возможность внесения комментария к факту фиксации давления (например указать самочувствие - отпразить это в описании к предложению внести коммент)
+        # TODO: Рассмотреть возможность внесения комментария к факту фиксации давления (например указать самочувствие - отпразить это в описании к предложению внести коммент).
+        #  Он будет вводить через наажтие кнопки , которая появляется вместе с ответным сообщением о том, что запись успешно добавлена в дневник.
         # TODO: Отдельно включить краткую инструкцию в виде описания/картинки как правильно мерить давление.
         # TODO: Рассмотреть возможность добавление команды - самое высокое значение, самое низкое значение.
 

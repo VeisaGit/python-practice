@@ -51,7 +51,7 @@ def monthly_average_query(conn, user_id: int):
 @ensure_connection
 def monthly_statistic_query(conn, user_id: int):
     c = conn.cursor()
-    c.execute('SELECT systolic_pressure, diastolic_pressure FROM user_message WHERE user_id = ? AND date > date(\'now\',\'-30 days\')', (user_id,))
+    c.execute('SELECT date, systolic_pressure, diastolic_pressure FROM user_message WHERE user_id = ? AND date > date(\'now\',\'-30 days\')', (user_id,))
     return c.fetchall()
 
 
