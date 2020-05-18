@@ -1,2 +1,16 @@
 #Игнорирование папки с кэшем питона
-__pycache__/
+/__pycache__/
+
+#Игнорирование папки idea
+/.idea/
+
+#Игнорирование файлов с БД
+/TelegramBot/**/*.db
+
+#Игнорирование файла с кэшем в папке TelegramBot
+/TelegramBot/__pycache__/
+
+#Игнорирование файла с API Key телеграм бота внутри
+/TelegramBot/const.py
+
+
