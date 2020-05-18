@@ -13,5 +13,4 @@
 
 import server
 
-
 server.check_number()
