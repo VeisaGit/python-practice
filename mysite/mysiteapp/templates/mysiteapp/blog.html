@@ -1,0 +1,32 @@
+{% extends 'mysiteapp/base.html' %}
+{% block main_section %}
+
+<h1>Hello, this is blog page!</h1>
+
+
+
+  {% for post in news %}
+   <h1>{{post.title}}</h1>
+   <p>{{post.text}}</p>
+
+    {% if post.author %}
+        <p>Автор: {{post.author}}</p>
+    {% else %}
+        <p>Автор: Администратор</p>
+    {% endif %}
+
+    <p>Дата: {{post.date}}</p>
+
+   {% endfor %}
+
+
+{% endblock main_section %}
+
+    {% block aside_news_section %}
+
+  <h3><b>Интересные статьи:</b></h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+        </div>
+        <img src="https://itproger.com/img/courses/1539259763.jpg" class="img-thumbnail">
+
+    {% endblock aside_news_section %}
