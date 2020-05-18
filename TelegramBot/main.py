@@ -7,7 +7,7 @@ from Commands import *
 from const import TG_TOKEN, TG_URL
 import logging, uuid, os, time
 
-ex_mark = u'\U00002757'  # exclamation mark smile
+ex_mark = u'\U00002757'  # exclamation mark smile :)
 up_red_triangle = u'\U0001F53A'  # up-pointing red triangle
 down_red_triangle = u'\U0001F53B'  # down-pointing red triangle
 
