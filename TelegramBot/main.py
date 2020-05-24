@@ -7,7 +7,7 @@ from Commands import *
 from const import TG_TOKEN, TG_URL
 import logging, uuid, os, time
 
-ex_mark = u'\U00002757'  # exclamation mark smile :)
+ex_mark = u'\U00002757'  # exclamation mark smile
 up_red_triangle = u'\U0001F53A'  # up-pointing red triangle
 down_red_triangle = u'\U0001F53B'  # down-pointing red triangle
 
@@ -83,13 +83,15 @@ def message_handler(update: Update, context: CallbackContext):
         wb = Workbook()
         ws = wb.active
 
-        ws['A1'] = 'Дата и время измерения'
+        ws['A1'] = 'Дата и время(МСК) измерения'
         ws['B1'] = 'Систолическое'
         ws['C1'] = 'Диасталическое'
         ws['D1'] = 'Пульс'
 
         for row in monthly_statistic:
             ws.append(row)
+
+        ws.column_dimensions["A"].width = 25
 
         random_id = uuid.uuid1()
 
@@ -175,9 +177,9 @@ def message_handler(update: Update, context: CallbackContext):
         # Вывод сообщения об успешности внесения данных в БД
         update.message.reply_text(successful_user_message(user), parse_mode=ParseMode.HTML)
 
-        update.message.reply_text(
-            "Предложения и замечания по работе бота можете написать в нашем <a href = \'https://t.me/sdpl_bot_chat\'>чате </a>",
-            parse_mode=ParseMode.HTML)
+        # update.message.reply_text(
+        #     "Предложения и замечания по работе бота можете написать в нашем <a href = \'https://t.me/sdpl_bot_chat\'>чате </a>",
+        #     parse_mode=ParseMode.HTML)
 
 
 

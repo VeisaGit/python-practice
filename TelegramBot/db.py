@@ -33,7 +33,7 @@ def init_db(conn, force: bool = False):
 @ensure_connection
 def add_message_to_db(conn, systolic_pressure: int, diastolic_pressure: int, user_id: int, heart_rate: int):
     c = conn.cursor()
-    c.execute('INSERT INTO user_message (systolic_pressure,diastolic_pressure, user_id, date, heart_rate) VALUES (?,?,?,datetime(),?)', (systolic_pressure, diastolic_pressure, user_id, heart_rate))
+    c.execute('INSERT INTO user_message (systolic_pressure,diastolic_pressure, user_id, date, heart_rate) VALUES (?,?,?,datetime("now","localtime"),?)', (systolic_pressure, diastolic_pressure, user_id, heart_rate))
     conn.commit()
 
 @ensure_connection

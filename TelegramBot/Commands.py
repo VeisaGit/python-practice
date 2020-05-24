@@ -327,4 +327,4 @@ def pressure_query_with_heart_rate_30(update, context: CallbackContext):
 
 
 def wrong_input(bot, update):
-    bot.message.reply_text('Нажмите на одну из кнопку ниже.')
+    bot.message.reply_text('Нажмите на одну из кнопок ниже.')
