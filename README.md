@@ -16,16 +16,23 @@ markdown [guide](https://guides.github.com/features/mastering-markdown/)
 - [ ] Искусство программирования | Д. Кнут
 
 ## Sites for practice
-- [ ] [Яндекс алгоритмы](https://praktikum.yandex.ru/algorithms)
+
+### [Chekio - common python](https://checkio.org)
+
+- [ ] Elementary
+- [ ] Home
+
+### [LeetCode - for practice](https://leetcode.com)
+
+### [TopCoder - for practice](https://www.topcoder.com)
 
 ## Courses
 
-### [Chekio](https://praktikum.yandex.ru/algorithms)
-
-- [ ] Elementary
-[ ] Home
-
-
-
 ### Common
+
 - [x] [SkillBox Python-разработчик](https://skillbox.ru/course/python/)
+
+### Algorithms
+
+- [ ] [Яндекс алгоритмы](https://praktikum.yandex.ru/algorithms)
+
