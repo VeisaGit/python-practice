@@ -22,9 +22,9 @@ markdown [guide](https://guides.github.com/features/mastering-markdown/)
 
 ### [Chekio](https://praktikum.yandex.ru/algorithms)
 
-* [ ] [Chekio](https://praktikum.yandex.ru/algorithms)
-  * Item 2a
-  * Item 2b
+- [ ] Elementary
+[ ] Home
+
 
 
 ### Common
