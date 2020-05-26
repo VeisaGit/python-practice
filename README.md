@@ -21,7 +21,7 @@ markdown [guide](https://guides.github.com/features/mastering-markdown/)
 ## Courses
 - [ ] [Chekio](https://praktikum.yandex.ru/algorithms)
 * Item 1
-* Item 2
+* [ ] [Chekio](https://praktikum.yandex.ru/algorithms)
   * Item 2a
   * Item 2b
 
