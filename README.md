@@ -16,9 +16,15 @@ markdown [guide](https://guides.github.com/features/mastering-markdown/)
 - [ ] Искусство программирования | Д. Кнут
 
 ## Sites for practice
+- [ ] [Яндекс алгоритмы](https://praktikum.yandex.ru/algorithms)
 
 ## Courses
+- [ ] [Chekio](https://praktikum.yandex.ru/algorithms)
+* Item 1
+* Item 2
+  * Item 2a
+  * Item 2b
+
 
 ### Common
 - [x] [SkillBox Python-разработчик](https://skillbox.ru/course/python/)
-- [ ] Алгоритмы: построение и анализ | Т. Кормен, Ч. Э. Лейзерсон, Р. Л. Ривест, К. Штайн
