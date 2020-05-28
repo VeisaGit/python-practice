@@ -21,16 +21,15 @@ def checkio(array: list) -> int:
 
     list = []
 
-    if bool(array):
+    if array:
         for position, value in enumerate(array):
             if position % 2 == 0:
                 list.append(value)
         return sum(list) * array[-1]
-    else:
-        return 0
+    return 0
 
 
-print(checkio([]))
+print(checkio([1,3,5]))
 
 
 
