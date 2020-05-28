@@ -20,12 +20,17 @@ checkio([]) == 0
 def checkio(array: list) -> int:
 
     list = []
-    if array:
+
+    if bool(array):
         for position, value in enumerate(array):
             if position % 2 == 0:
                 list.append(value)
         return sum(list) * array[-1]
-    return 0
+    else:
+        return 0
 
 
 print(checkio([]))
+
+
+
